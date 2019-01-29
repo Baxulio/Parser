@@ -14,8 +14,8 @@ QByteArray Requesting::pageText(QUrl pageUrl)
 {
     QNetworkRequest request(pageUrl);
     QNetworkReply *reply = manager->get(request);
-    connect(reply,SIGNAL(finished()), &eventLoop, SLOT(quit()));
-    eventLoop.exec();
+    connect(reply,SIGNAL(finished()), &eventLoop, SLOT(quit()));     //I think this way of blocking is dangerous. 
+    eventLoop.exec();                                                //Why not to use reply->waitForReadyRead(ms) and reply->isFinished() instead?
     reply->deleteLater();
     return reply->readAll();
 }
