@@ -37,7 +37,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-include(C:\QtProjectWin\Parser\libs\QtXlsxWriter-master\src\xlsx\qtxlsx.pri)
+include($$PWD/../libs/QtXlsxWriter-master/src/xlsx/qtxlsx.pri)
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../libs/QGumboParser/QGumboParser/release/ -lQGumboParser
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../libs/QGumboParser/QGumboParser/debug/ -lQGumboParser
